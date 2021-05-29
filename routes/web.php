@@ -19,7 +19,6 @@ Route::get('/lesson/{id}', function () {return view('home');});
 #レッスンの編集
 Route::post('/lesson/{id}', function () {return view('home');});
 
-
 #課題の一覧
 Route::get('/lesson/{id}/task', function () {return view('home');});
 #課題の登録
