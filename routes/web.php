@@ -1,5 +1,4 @@
 <?php
- mo
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +34,7 @@ Route::post('/lesson/{id}/task/{task_id}', function () {return view('home');});
 Route::get('/lesson/{id}/chat', function () {return view('home');});
 #チャットの登録
 Route::post('/lesson/{id}/chat', function () {return view('home');});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
