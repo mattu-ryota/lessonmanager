@@ -44,7 +44,7 @@ Route::post('/lesson/{id}/chat', function () {return view('home');});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home1', 'HomeController@index')->name('home');
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
