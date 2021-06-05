@@ -77,6 +77,7 @@ class LessonController extends Controller
     {
         $lesson=Lesson::find($id);
 
+
         return view('lesson/show',["lesson"=>$lesson]);
     }
 

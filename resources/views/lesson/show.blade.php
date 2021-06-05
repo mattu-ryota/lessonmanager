@@ -7,6 +7,10 @@
     <p>曜日:{{$lesson->dayofweek}}</p>
     <p>時限:{{$lesson->time}}</p>
     <p>詳細:{{$lesson->description}}</p>
+    <p>課題一覧</p>
+        @foreach($lesson->tasks()->get() as $task)
+            <p>{{$task->name}}</p>
+        @endforeach
 
     <form method="POST">
     @csrf
@@ -25,4 +29,39 @@
         <input type="hidden" name="lesson_id" value="{{$lesson->id}}">
         <button type="submit" class="btn btn-primary">登録</button>
     </form>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="/lesson/{id}/progress/create" method="POST">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">課題1</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        @csrf
+                        <input type="hidden" value="{{Auth::id()}}" name="user_id">
+                        <input type="hidden" name="task_id" value="1">
+                        <div class="form-group">
+
+                            <label for="progress">進行状況</label>
+                            <input type="range" class="form-control-range" id="progress" name="progress" value="0">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">登録</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
 @endsection
