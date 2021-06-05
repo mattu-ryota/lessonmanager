@@ -23,7 +23,10 @@ Route::get('/date/{date}', 'LessonController@list');
 Route::get('/lesson/create', 'LessonController@create');
 Route::post('/lesson/create', 'LessonController@store');
 #レッスンの詳細
-Route::get('/lesson/{id}', function () {return view('home');});
+Route::get('/lesson/{id}', 'LessonController@show');
+
+
+
 #レッスンの編集
 Route::post('/lesson/{id}', function () {return view('home');});
 

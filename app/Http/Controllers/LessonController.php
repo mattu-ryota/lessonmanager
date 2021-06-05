@@ -8,7 +8,7 @@ use App\Lesson;
 
 class LessonController extends Controller
 {
-    
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -74,7 +74,9 @@ class LessonController extends Controller
      */
     public function show($id)
     {
-        //
+        $lesson=Lesson::find($id);
+
+        return view('lesson/show',["lesson"=>$lesson]);
     }
 
     /**
