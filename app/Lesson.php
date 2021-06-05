@@ -10,4 +10,8 @@ class Lesson extends Model
     {
         return $this->belongsToMany('App\Users')->withTimestamps();
     }
+    public function tasks()
+    {
+        return $this->hasMany('App\Task');
+    }
 }
