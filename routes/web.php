@@ -11,9 +11,17 @@
 */
 
 #レッスンの一覧が見れる
-Route::get('/lesson', function () {return view('home');});
+Route::get('/', 'LessonController@index');
+
+
+#日のスケジュール
+Route::get('/date/{date}', 'LessonController@list');
+
+
+
 #レッスンの登録
-Route::post('/lesson', function () {return view('home');});
+Route::get('/lesson/create', 'LessonController@create');
+Route::post('/lesson/create', 'LessonController@store');
 #レッスンの詳細
 Route::get('/lesson/{id}', function () {return view('home');});
 #レッスンの編集
@@ -37,3 +45,7 @@ Route::post('/lesson/{id}/chat', function () {return view('home');});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+

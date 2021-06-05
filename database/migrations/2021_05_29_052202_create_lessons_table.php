@@ -18,6 +18,8 @@ class CreateLessonsTable extends Migration
             $table->text('name');
             $table->text('teacher');
             $table->text('description');
+            $table->integer('dayofweek');
+            $table->integer('time');
             $table->timestamps();
         });
     }

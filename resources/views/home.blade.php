@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div>
+    <div style="width:100%">
         <v-sheet
             tile
             height="54"
@@ -14,33 +14,8 @@
             >
                 <v-icon>mdi-chevron-left</v-icon>
             </v-btn>
-            <v-select
-                v-model="type"
-                :items="types"
-                dense
-                outlined
-                hide-details
-                class="ma-2"
-                label="type"
-            ></v-select>
-            <v-select
-                v-model="mode"
-                :items="modes"
-                dense
-                outlined
-                hide-details
-                label="event-overlap-mode"
-                class="ma-2"
-            ></v-select>
-            <v-select
-                v-model="weekday"
-                :items="weekdays"
-                dense
-                outlined
-                hide-details
-                label="weekdays"
-                class="ma-2"
-            ></v-select>
+            <v-spacer></v-spacer>
+            <h1>${  }</h1>
             <v-spacer></v-spacer>
             <v-btn
                 icon
@@ -59,8 +34,7 @@
                 :events="events"
                 :event-overlap-mode="mode"
                 :event-overlap-threshold="30"
-                :event-color="getEventColor"
-                @change="getEvents"
+                @click:date="showDay"
             ></v-calendar>
         </v-sheet>
     </div>
