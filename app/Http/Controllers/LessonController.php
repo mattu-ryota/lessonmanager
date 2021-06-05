@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Lesson;
+use App\Task;
 
 
 class LessonController extends Controller
@@ -85,9 +86,15 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
-        //
+        $Task=new Task();
+        $Task->name=$request->request->get('name');
+        $Task->deadline=$request->request->get('deadline');
+        $Task->description=$request->request->get('description');
+        $Task->lesson_id=$request->request->get('lesson_id');
+        $Task->save();
+        return redirect('/');
     }
 
     /**

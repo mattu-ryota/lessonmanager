@@ -28,7 +28,7 @@ Route::get('/lesson/{id}', 'LessonController@show');
 
 
 #レッスンの編集
-Route::post('/lesson/{id}', function () {return view('home');});
+Route::post('/lesson/{id}',  'LessonController@edit' );
 
 #課題の一覧
 Route::get('/lesson/{id}/task', function () {return view('home');});

@@ -9,6 +9,7 @@
     <p>詳細:{{$lesson->description}}</p>
 
     <form method="POST">
+    @csrf
         <div class="form-group">
             <label for="teacher">課題名</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="課題名を入れてください。">
