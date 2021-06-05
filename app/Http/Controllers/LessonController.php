@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Lesson;
 use App\Task;
+use App\Progress;
 
 
 class LessonController extends Controller
@@ -105,9 +106,14 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function progress(Request $request, $id)
     {
-        //
+        $progress=new Progress();
+        $progress->user_id=$request->request->get('user_id');
+        $progress->task_id=$request->request->get('task_id');
+        $progress->progress=$request->request->get('progress');
+        $progress->save();
+        return redirect('/');
     }
 
     /**

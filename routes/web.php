@@ -30,6 +30,7 @@ Route::get('/lesson/{id}', 'LessonController@show');
 #レッスンの編集
 Route::post('/lesson/{id}',  'LessonController@edit' );
 
+Route::post('/lesson/{id}/progress/create','LessonController@progress');
 #課題の一覧
 Route::get('/lesson/{id}/task', function () {return view('home');});
 #課題の登録
