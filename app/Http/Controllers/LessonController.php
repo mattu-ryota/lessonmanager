@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Lesson;
+
 
 class LessonController extends Controller
 {
@@ -53,7 +55,15 @@ class LessonController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->request->get("teacher"));
+
+        $lesson= new Lesson();
+        $lesson->name=$request->request->get("name");
+        $lesson->teacher=$request->request->get("teacher");
+        $lesson->description=$request->request->get("description");
+        $lesson->dayofweek=$request->request->get("dayofweek");
+        $lesson->time=$request->request->get("time");
+        $lesson->save();
+        return redirect("/");
     }
 
     /**

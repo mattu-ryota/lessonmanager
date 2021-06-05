@@ -37,7 +37,7 @@
         </div>
         <div class="form-group">
             <label for="descrimination">詳細</label>
-            <textarea class="form-control" id="descrimination" name="descrimination" placeholder="授業の詳細を書いてください。"></textarea>
+            <textarea class="form-control" id="descrimination" name="description" placeholder="授業の詳細を書いてください。"></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">登録</button>
