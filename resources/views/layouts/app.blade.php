@@ -15,7 +15,7 @@
   <v-app id="inspire">
     <v-card
       class="mx-auto overflow-hidden"
-      height="1000"
+      height="100%"
       width="100%"
     >
       <v-app-bar

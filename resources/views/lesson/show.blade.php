@@ -10,6 +10,9 @@
     <p>課題一覧</p>
         @foreach($lesson->tasks()->get() as $task)
             <p>{{$task->name}}</p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Launch demo modal
+            </button>
         @endforeach
 
     <form method="POST">
@@ -29,9 +32,31 @@
         <input type="hidden" name="lesson_id" value="{{$lesson->id}}">
         <button type="submit" class="btn btn-primary">登録</button>
     </form>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-    </button>
+    <div class="container">
+        <h1>チャット</h1>
+        <div>
+            <li>メッセージ１</li>
+            <li>メッセージ１</li>
+            <li>メッセージ１</li>
+            <li>メッセージ１</li>
+        </div>
+        <div class="form-group">
+            <form action="/lesson/1/chat/create" method="POST">
+                @csrf
+                <input type="hidden" value="{{Auth::id()}}" name="user_id">
+                <input type="hidden" value="1" name="lesson_id">
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="file" aria-describedby="file">
+                        <label class="custom-file-label" for="file">ファイル</label>
+                    </div>
+                </div>
+                    <label for="message">メッセージ</label>
+                <textarea class="form-control" id="message" name="message" placeholder="メッセージ"></textarea>
+            <button type="submit" class="btn btn-primary">送信</button>
+        </div>
+    </div>
+
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
