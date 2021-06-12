@@ -33,7 +33,17 @@ class LessonController extends Controller
      */
     public function list()
     {
-        return view('day');
+
+        $daylessons=[
+            "1時限"=>"国語",
+            "2時限"=>"数学",
+            "3時限"=>"理科",
+            "4時限"=>"社会",
+            "5時限"=>"英語",
+            "6時限"=>"体育",
+
+        ];
+        return view('day',compact("daylessons"));
     }
 
 
@@ -65,6 +75,12 @@ class LessonController extends Controller
         $lesson->dayofweek=$request->request->get("dayofweek");
         $lesson->time=$request->request->get("time");
         $lesson->save();
+
+        $user = Auth::user();
+
+        $user->lessons()->attach($lesson);
+
+
         return redirect("/");
     }
 

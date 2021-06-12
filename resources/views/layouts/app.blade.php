@@ -38,15 +38,24 @@
         >
           <v-list-item-group
             v-model="group"
-            active-class="deep-purple--text text--accent-4"
+            active-class="text--accent-4"
           >
-            <v-list-item>
+          <v-list-item
+              @click="Home"
+              >
+                <v-list-item-icon>
+                  <v-icon>mdi-home</v-icon>
+                </v-list-item-icon>
+                <v-list-item-title>ホーム</v-list-item-title>
+              </v-list-item>
+            <v-list-item
+            @click="Logout"
+            >
               <v-list-item-icon>
-                <v-icon>mdi-home</v-icon>
+                <v-icon>mdi-logout</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>チャットルーム</v-list-item-title>
+              <v-list-item-title>ログアウト</v-list-item-title>
             </v-list-item>
-
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>
@@ -63,18 +72,20 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/ja.js"></script>
   <script>
 new Vue({
   el: '#app',
   vuetify: new Vuetify(),
-  delimiter:["${","}"],
+  delimiters:["${","}"],
   data: () => ({
   drawer: false,
     group: null,
     type: 'month',
     mode: 'stack',
     weekday: [0, 1, 2, 3, 4, 5, 6],
-    value: '',
+    value: moment().format('YYYY-MM-DD'),
     events:[{
          name: "課題締切",
          start: '2021-06-04',
@@ -82,10 +93,20 @@ new Vue({
          timed: false,
        }],
   }),
+  computed: {
+     title() {
+       return moment(this.value).format('YYYY年 M月');  // 表示用文字列を返す
+     }
+   },
   methods:{
     showDay:function(e){
         location.href="/date/"+e.date
-    }
+    },
+    goLesson:function(e){
+            location.href="/lesson/"+e
+        },
+    Logout:()=>{location.href="/logout"},
+    Home:()=>location.href="/",
   }
 
 })

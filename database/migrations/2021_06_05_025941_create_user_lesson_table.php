@@ -14,7 +14,7 @@ class CreateUserLessonTable extends Migration
     public function up()
     {
         Schema::create('user_lesson', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('lesson_id');
             $table->foreign('user_id')->references('id')->on('lessons')->onDelete('cascade');

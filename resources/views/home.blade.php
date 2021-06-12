@@ -15,7 +15,7 @@
                 <v-icon>mdi-chevron-left</v-icon>
             </v-btn>
             <v-spacer></v-spacer>
-            <h1>${  }</h1>
+            <h1>${ title }</h1>
             <v-spacer></v-spacer>
             <v-btn
                 icon
@@ -28,6 +28,9 @@
         <v-sheet height="600">
             <v-calendar
                 ref="calendar"
+                locale="ja-jp"
+                :day-format="timestamp => new Date(timestamp.date).getDate()"
+                :month-format="timestamp => (new Date(timestamp.date).getMonth() + 1) + ' /'"
                 v-model="value"
                 :weekdays="weekday"
                 :type="type"

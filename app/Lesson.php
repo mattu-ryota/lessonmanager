@@ -8,7 +8,7 @@ class Lesson extends Model
 {
     public function users()
     {
-        return $this->belongsToMany('App\Users')->withTimestamps();
+        return $this->belongsToMany('App\Users');
     }
     public function tasks()
     {

@@ -39,7 +39,7 @@ class User extends Authenticatable
 
     public function lessons()
     {
-        return $this->belongsToMany('App\Lesson')->withTimestamps();
+        return $this->belongsToMany('App\Lesson');
     }
 
 }
