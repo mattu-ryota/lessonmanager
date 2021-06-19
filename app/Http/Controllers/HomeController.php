@@ -9,7 +9,7 @@ use App\User;
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * ログインするための関数
      *
      * @return void
      */
@@ -19,7 +19,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * 
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */

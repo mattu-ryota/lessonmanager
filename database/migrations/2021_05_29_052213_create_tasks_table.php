@@ -18,6 +18,7 @@ class CreateTasksTable extends Migration
             $table->Integer('lesson_id');
             $table->text('name');
             $table->Datetime('deadline');
+            $table->text('color');
             $table->text('description');
             $table->timestamps();
         });

@@ -40,13 +40,17 @@
                 @click:date="showDay"
             ></v-calendar>
         </v-sheet>
-    </div>
+    </div>   
 @endsection
 @section('events')
-    {
-    name: "課題締切",
-    start: '2021-06-04',
-    color:"black",
+@foreach($Tasks as $Task)
+    
+    
+{     
+    name: "{{$Task->name}}",
+    start: '{{$Task->deadline}}',
+    color:"{{$Task->getColor()}}",
     timed: false,
-    },
+},
+@endforeach   
 @endsection

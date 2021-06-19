@@ -23,7 +23,13 @@ class LessonController extends Controller
      */
     public function index()
     {
-        return view('home');
+        //todo;タスクの情報をデータベースから取ってくる
+    $Tasks=Task::all();
+    
+        $events=[['名前'=>'課題1','締切日'=>'2021-06-15','色'=>'black'],
+    ['名前'=>'課題2','締切日'=>'2021-06-30','色'=>'red']];
+
+        return view('home',compact('events','Tasks'));
     }
 
     /**
@@ -33,7 +39,7 @@ class LessonController extends Controller
      */
     public function list()
     {
-
+    //日付の情報から曜日を算出し、曜日とユーザーIDと時間をもとに授業を作る
         $daylessons=[
             "1時限"=>"国語",
             "2時限"=>"数学",
@@ -50,7 +56,7 @@ class LessonController extends Controller
 
 
     /**
-     * Show the form for creating a new resource.
+     *授業作成のページ
      *
      * @return \Illuminate\Http\Response
      */
@@ -60,7 +66,7 @@ class LessonController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 授業登録の関数
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -85,7 +91,7 @@ class LessonController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * 授業詳細のページ
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -99,7 +105,7 @@ class LessonController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * タスクの登録の関数
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -116,7 +122,7 @@ class LessonController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * 進行状況
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -133,7 +139,7 @@ class LessonController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 削除
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
