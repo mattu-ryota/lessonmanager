@@ -42,3 +42,11 @@
         </v-sheet>
     </div>
 @endsection
+@section('events')
+    {
+    name: "課題締切",
+    start: '2021-06-04',
+    color:"black",
+    timed: false,
+    },
+@endsection

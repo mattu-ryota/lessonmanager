@@ -81,17 +81,11 @@ new Vue({
   delimiters:["${","}"],
   data: () => ({
   drawer: false,
-    group: null,
     type: 'month',
     mode: 'stack',
     weekday: [0, 1, 2, 3, 4, 5, 6],
     value: moment().format('YYYY-MM-DD'),
-    events:[{
-         name: "課題締切",
-         start: '2021-06-04',
-         color:"black",
-         timed: false,
-       }],
+    events:[@yield("events")],
   }),
   computed: {
      title() {
