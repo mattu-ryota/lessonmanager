@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Lesson;
 use App\Task;
@@ -31,8 +32,13 @@ class LessonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function list()
+    public function list($date)
     {
+        $day=new Carbon($date);
+        $youbi=$day->dayOfWeek;
+
+
+        Lesson::where()->dayOfWeek();
 
         $daylessons=[
             "1時限"=>"国語",
