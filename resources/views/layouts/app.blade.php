@@ -99,6 +99,9 @@ new Vue({
     goLesson:function(e){
             location.href="/lesson/"+e
         },
+    createLesson:function(e){
+            location.href="/lesson/create"
+        },
     Logout:()=>{location.href="/logout"},
     Home:()=>location.href="/",
   }

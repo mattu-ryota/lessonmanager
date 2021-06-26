@@ -21,6 +21,22 @@
                     </v-card>
                 </v-col>
             @endforeach
+            <v-col cols="12">
+                    <v-card
+                        color="#cfe3d0"
+                        @click="createLesson()"
+                    >
+                        <v-card-title class="text-h5">
+                        新規登録
+                        </v-card-title>
+                        <v-card-subtitle></v-card-subtitle>
+                        <v-card-actions>
+                            <v-btn text>
+                                click
+                            </v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-col>
         </v-row>
     </v-container>
 @endsection
