@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Lesson;
 use App\Task;
 use App\Progress;
-
+use Carbon\Carbon;
 
 class LessonController extends Controller
 {
@@ -41,19 +41,16 @@ class LessonController extends Controller
     {
         $day=new Carbon($date);
         $youbi=$day->dayOfWeek;
+        
 
 
-        Lesson::where()->dayOfWeek();
-
-        $daylessons=[
-            "1時限"=>"国語",
-            "2時限"=>"数学",
-            "3時限"=>"理科",
-            "4時限"=>"社会",
-            "5時限"=>"英語",
-            "6時限"=>"体育",
-
-        ];
+        $lessons=Lesson::where('dayofweek',$youbi)->get();
+        $daylessons=[];
+        foreach($lessons as $lesson){ 
+            $daylessons[$lesson->time]=$lesson->name;
+        }
+        
+        
         return view('day',compact("daylessons"));
     }
 
