@@ -28,33 +28,33 @@
 - 授業管理アプリを作成するために使用した言語・技術・ライブラリなど
    - PHP
    - Laravel
-   - MYSQL
-   - Javascript
+   - MySQL
+   - JavaScript
    - Bootstrap
    - Heroku
 
 # Usage
 
-- https://secure-beyond-13963.herokuapp.com/にアクセス
+- https://secure-beyond-13963.herokuapp.com/ にアクセス
 - デモユーザーでログイン
-     ◉Mail:maturyo0115@gmail.com
-     ◉Password:Nisikor1
+  -Mail:maturyo0115@gmail.com
+  -Password:Nisikor1
 - カレンダーのページの日付を押すと、課題の登録や授業の登録などをすることができる。
 
 #ユーザーが何人いるか
 User->学生
 Admin->管理者
 # ユーザーストーリー
-・学生が授業を登録する -> /lesson/register
-・学生が課題を登録する -> /lesson/{id}/task/resister
-・学生が授業を確認する ->  /lesson/{id}
-・学生が課題を確認する -> /lesson/{id}/task/{id}
-・学生が授業を編集する -> /lesson/{id}/edit
-・学生が課題を編集する -> /lesson/{id}/task/{id}/edit
-・学生が授業を削除する -> /lesson/{id}
-・学生が課題を削除する -> /lesson/{id}/task/{id}
-・学生がメッセージを送る -> /lesson/{id}/chat/register
-・学生がファイルを送る ->/lesson/{id}/chat/register
-・学生がユーザー登録をする
+- 学生が授業を登録する -> /lesson/register
+- 学生が課題を登録する -> /lesson/{id}/task/resister
+- 学生が授業を確認する ->  /lesson/{id}
+- 学生が課題を確認する -> /lesson/{id}/task/{id}
+- 学生が授業を編集する -> /lesson/{id}/edit
+- 学生が課題を編集する -> /lesson/{id}/task/{id}/edit
+- 学生が授業を削除する -> /lesson/{id}
+- 学生が課題を削除する -> /lesson/{id}/task/{id}
+- 学生がメッセージを送る -> /lesson/{id}/chat/register
+- 学生がファイルを送る ->/lesson/{id}/chat/register
+- 学生がユーザー登録をする
 
 
